@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  testsolutions:
+    image: webdevops/php-nginx:7.1
+    labels:
+    - "traefik.enable=true"
+    - "traefik.backend=testsolutions"
+    - "traefik.frontend.rule=Host:yourdomain.com"
+    - "traefik.docker.network=reverseproxy_default"
+    networks:
+    - "reverseproxy_default"
+    restart: always
+    volumes:
+    - ./app:/app
+#    - ./nginx:/opt/docker/etc/nginx
+networks:
+  reverseproxy_default:
+    external:
+      name: reverseproxy_default
