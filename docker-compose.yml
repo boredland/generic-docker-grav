@@ -2,10 +2,10 @@ version: '2'
 
 services:
   appname:
-    image: webdevops/php-nginx:7.1
+    image: boredland/generic-docker-grav
     labels:
     - "traefik.enable=true"
-    - "traefik.backend=testsolutions"
+    - "traefik.backend=appname"
     - "traefik.frontend.rule=Host:yourdomain.com"
     - "traefik.docker.network=reverseproxy_default"
     networks:
