@@ -1,10 +1,13 @@
-FROM webdevops/php-nginx:debian-8-php7
+FROM webdevops/php-nginx:debian-9
 
-RUN apt update \
-    && /usr/local/bin/apt-install git-core php7.0-imagick php-pear libyaml-dev \
-    memcached libmemcached-tools libmemcached-dev
+RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get install --no-upgrade -y \
+	git-core php-pear libyaml-dev \
+    	memcached libmemcached-tools libmemcached-dev php7.0-dev
 
 # Install YAML extension
-RUN pecl install yaml-2.0.2 && echo "extension=yaml.so" > /usr/local/etc/php/conf.d/ext-yaml.ini
+RUN pecl install yaml-2.0.2
+RUN echo "extension=yaml.so" >> /opt/docker/etc/php/php.ini
 
 COPY ./grav.vhost.conf /opt/docker/etc/nginx/vhost.conf
