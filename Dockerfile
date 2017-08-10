@@ -1,4 +1,4 @@
-FROM webdevops/php-nginx:7.1
+FROM webdevops/php-nginx:debian-8-php7
 
 RUN apt update \
     && /usr/local/bin/apt-install git-core php7.0-curl php7.0-gd php7.0-mbstring \
