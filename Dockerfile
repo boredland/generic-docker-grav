@@ -5,6 +5,6 @@ RUN apt update \
     memcached libmemcached-tools libmemcached-dev
 
 # Install YAML extension
-RUN pecl install yaml-2.0.0 && echo "extension=yaml.so" > /usr/local/etc/php/conf.d/ext-yaml.ini
+RUN pecl install yaml-2.0.2 && echo "extension=yaml.so" > /usr/local/etc/php/conf.d/ext-yaml.ini
 
 COPY ./grav.vhost.conf /opt/docker/etc/nginx/vhost.conf
