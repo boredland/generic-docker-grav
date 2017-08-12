@@ -1,4 +1,4 @@
-FROM webdevops/php-nginx:7.1
+FROM webdevops/php-nginx:debian-9
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update
 
