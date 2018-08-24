@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  grav:
+    image: boredland/generic-docker-grav
+    restart: always
+    #volumes:
+    #  - ./user:/app/user
+    ports:
+      - 8080:80
