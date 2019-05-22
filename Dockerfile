@@ -1,6 +1,6 @@
 FROM webdevops/php-nginx:alpine
 
-ARG GRAV_VERSION=1.5.1
+ARG GRAV_VERSION=1.6.9
 
 #RUN DEBIAN_FRONTEND=noninteractive apt-get -qq update
 RUN apk add --update \
